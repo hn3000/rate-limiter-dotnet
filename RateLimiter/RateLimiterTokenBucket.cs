@@ -12,7 +12,11 @@ namespace RateLimiter
             double initAmount = 0.0,
             ITimeSource timeSource = default(ITimeSource)
         ) {
-            return new RateLimiterTokenBucket(ratePerSecond, maxAmount, Math.Min(initAmount, maxAmount), timeSource);
+            return new RateLimiterTokenBucket(
+                ratePerSecond: ratePerSecond, 
+                maxAmount: maxAmount, 
+                initAmount: Math.Min(initAmount, maxAmount), 
+                timeSource: timeSource);
         }
 
         protected RateLimiterTokenBucket(double ratePerSecond, double maxAmount, double initAmount, ITimeSource timeSource)
