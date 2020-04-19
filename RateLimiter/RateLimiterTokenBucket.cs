@@ -57,7 +57,8 @@ namespace RateLimiter
             if (waitTime > RateLimiterConstants.WaitImpossible) {
                 return RateLimiterConstants.WaitImpossible;
             }
-            return (long)waitTime;        }
+            return (long)waitTime;        
+          }
         
         private void _updateAmount()
         {
