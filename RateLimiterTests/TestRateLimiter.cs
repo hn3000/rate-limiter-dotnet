@@ -8,13 +8,10 @@ namespace RateLimiterTests
     [TestClass]
     public class TestRateLimiter
     {
-        // Number of 100ns ticks per time unit (copied from DateTime)
-        private const long S_TicksPerMillisecond = 10000;
-        private const long S_TicksPerSecond = S_TicksPerMillisecond * 1000;
 
         private long TicksPerSecond(double seconds)
         {
-            return (long) Math.Ceiling(seconds * (double)S_TicksPerSecond);
+            return (long) Math.Ceiling(seconds * (double)TimeSpan.TicksPerSecond);
         }
 
         [TestMethod]

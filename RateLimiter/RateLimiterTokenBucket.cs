@@ -4,9 +4,7 @@ namespace RateLimiter
 {
     public class RateLimiterTokenBucket : IRateLimiter
     {
-        // Number of 100ns ticks per time unit (copied from DateTime)
-        private const long TicksPerMillisecond = 10000;
-        private const long TicksPerSecond = TicksPerMillisecond * 1000;
+
         
         public static RateLimiterTokenBucket CreateInstance(
             double ratePerSecond, 
@@ -19,7 +17,7 @@ namespace RateLimiter
 
         protected RateLimiterTokenBucket(double ratePerSecond, double maxAmount, double initAmount, ITimeSource timeSource)
         {
-            _ratePerTick = ratePerSecond / TicksPerSecond;
+            _ratePerTick = ratePerSecond / TimeSpan.TicksPerSecond;
             _maxAmount = maxAmount;
             _currentAmount = initAmount;
             _timeSource = timeSource ?? S_DefaultTimeSource;
