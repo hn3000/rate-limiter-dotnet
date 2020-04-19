@@ -17,7 +17,7 @@ namespace RateLimiter
             return new RateLimiterTokenBucket(ratePerSecond, maxAmount, Math.Min(initAmount, maxAmount), timeSource);
         }
 
-        RateLimiterTokenBucket(double ratePerSecond, double maxAmount, double initAmount, ITimeSource timeSource)
+        protected RateLimiterTokenBucket(double ratePerSecond, double maxAmount, double initAmount, ITimeSource timeSource)
         {
             _ratePerTick = ratePerSecond / TicksPerSecond;
             _maxAmount = maxAmount;

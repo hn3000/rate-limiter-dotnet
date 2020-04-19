@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RateLimiter
+﻿namespace RateLimiter
 {
     /**
      * An IRateLimiter provides a way to rate limit events. Each event is assigned 
@@ -40,7 +38,7 @@ namespace RateLimiter
      * Constants for IRateLimiter implementations: when a request for permits can
      * not be satisfied, WaitImpossible will be returned instead.
      */
-    public class RateLimiterConstants
+    public static class RateLimiterConstants
     {
         public const long WaitImpossible = long.MaxValue;
     }
