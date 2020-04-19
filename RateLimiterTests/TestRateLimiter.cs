@@ -37,31 +37,7 @@ namespace RateLimiterTests
             Assert.IsTrue(TicksPerSecond(0.95) <= rateLimiter.WaitTimeForAmount(1.0));
             Assert.IsTrue(TicksPerSecond(0.95) <= rateLimiter.WaitTimeForAmount());
         }
-        
-        /*
-        [TestMethod]
-        public void TestRateLimiterCreateWorksWithoutTimeSource()
-        {
-            var rateLimiter = RateLimiterTokenBucket.CreateInstance(1.0, 5.0, 0.0);
-            
-            Assert.IsNotNull(rateLimiter);
-            Assert.IsTrue(TicksPerSecond(1) >= rateLimiter.WaitTimeForAmount(1.0));
-            Assert.IsTrue(TicksPerSecond(1) >= rateLimiter.WaitTimeForAmount());
-            Assert.IsTrue(TicksPerSecond(0.95) <= rateLimiter.WaitTimeForAmount(1.0));
-            Assert.IsTrue(TicksPerSecond(0.95) <= rateLimiter.WaitTimeForAmount());
-        }
 
-        [TestMethod]
-        public void TestRateLimiterCreateWorksWithTimeSource()
-        {
-            var rateLimiter = RateLimiterTokenBucket.CreateInstance(1.0, 5.0, 0.0, new TimeSourceZero());
-            
-            Assert.IsNotNull(rateLimiter);
-            Assert.AreEqual(TicksPerSecond(1), rateLimiter.WaitTimeForAmount(1.0));
-            Assert.AreEqual(TicksPerSecond(1), rateLimiter.WaitTimeForAmount());
-        }
-        */
-        
         [TestMethod]
         public void TestRateLimiterGivesOutInitAmount()
         {
