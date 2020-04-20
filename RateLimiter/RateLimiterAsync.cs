@@ -57,7 +57,7 @@ namespace RateLimiter
             }
             
             var ticket = default(Task<bool>);
-            lock (this)
+            lock (_lock)
             {
                 var waitNow = WaitTimeForAmount(amount);
                 if (waitNow == RateLimiterConstants.WaitImpossible)
@@ -115,7 +115,7 @@ namespace RateLimiter
 
         private void taskDone(Task<bool> ticket)
         {
-            lock (this)
+            lock (_lock)
             {
                 if (_lastTask == ticket) _lastTask = null;
             }
@@ -123,5 +123,6 @@ namespace RateLimiter
 
         private readonly IRateLimiter _rateLimiter;
         private Task<bool> _lastTask;
+        private Object _lock = new Object();
     }
 }
