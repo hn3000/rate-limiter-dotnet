@@ -13,7 +13,7 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 7.*
+        dotnet-version: 6.*
 
     - name: Checkout code
       uses: actions/checkout@v2
