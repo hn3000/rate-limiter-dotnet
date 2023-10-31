@@ -17,10 +17,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Prepare SNK
-      env: 
-        NUGET_SIGNING_KEY: ${{ secrets.NUGET_SIGNING_KEY }}    
-      run: echo "$NUGET_SIGNING_KEY" | base64 -d > RateLimiter/key.snk
+    #- name: Prepare SNK
+    #  env: 
+    #    NUGET_SIGNING_KEY: ${{ secrets.NUGET_SIGNING_KEY }}    
+    #  run: echo "$NUGET_SIGNING_KEY" | base64 -d > RateLimiter/key.snk && sha256sum RateLimiter/key.snk && echo "$NUGET_SIGNING_KEY" |wc
 
     - name: Build
       run: dotnet build RateLimiter --configuration Release
@@ -28,8 +28,8 @@ jobs:
     - name: Test
       run: dotnet test RateLimiterTests
 
-    - name: Publish NuGet Package
-      run: dotnet pack RateLimiter --configuration Release --output ./artifacts
+    #- name: Publish NuGet Package
+    #  run: dotnet pack RateLimiter --configuration Release --output ./artifacts
       
    
     # - name: Push NuGet package
