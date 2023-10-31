@@ -4,3 +4,4 @@ obj
 /artifacts
 *.snk*
 .private
+*.sln.DotSettings.user
