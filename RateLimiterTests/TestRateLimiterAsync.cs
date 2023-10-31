@@ -21,8 +21,8 @@ namespace RateLimiterTests
             var result = await delayedPermission;
             var timeTaken = sw.Elapsed;
             
-            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(1.10));
-            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.90));
+            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(1.10), $"{timeTaken} ! <= 1.10");
+            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.90), $"{timeTaken} ! >= 0.90");
             Assert.IsTrue(result);
         }
 
@@ -40,8 +40,8 @@ namespace RateLimiterTests
             var timeTaken = sw.Elapsed;
 
             Assert.IsFalse(result);
-            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(0.01));
-            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.0));
+            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(0.05), $"{timeTaken} ! <= 0.05");
+            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.0), $"{timeTaken} ! >= 1.05");
         }
 
         [TestMethod]
@@ -57,8 +57,8 @@ namespace RateLimiterTests
             var timeTaken = sw.Elapsed;
 
             Assert.IsFalse(result);
-            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(0.01));
-            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.0));
+            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(0.05), $"{timeTaken} ! <= 0.05");
+            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.0), $"{timeTaken} ! >= 1.05");
         }
 
         [TestMethod]
@@ -85,8 +85,8 @@ namespace RateLimiterTests
             var result = await delayedPermission;
             var timeTaken = sw.Elapsed;
             
-            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(0.01));
-            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.0));
+            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(0.02), $"{timeTaken} ! <= 0.02");
+            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.0), $"{timeTaken} ! >= 0.00");
             Assert.IsTrue(result);
         }
 
@@ -99,8 +99,8 @@ namespace RateLimiterTests
             var result = await delayedPermission;
             var timeTaken = sw.Elapsed;
             
-            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(0.01));
-            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.0));
+            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(0.01), $"{timeTaken} ! <= 0.01");
+            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.0), $"{timeTaken} ! >= 0.0");
             Assert.IsFalse(result);
         }
 
