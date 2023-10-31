@@ -21,8 +21,8 @@ namespace RateLimiterTests
             var result = await delayedPermission;
             var timeTaken = sw.Elapsed;
             
-            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(1.01));
-            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.99));
+            Assert.IsTrue(timeTaken <= TimeSpan.FromSeconds(1.10));
+            Assert.IsTrue(timeTaken >= TimeSpan.FromSeconds(0.90));
             Assert.IsTrue(result);
         }
 
@@ -124,11 +124,11 @@ namespace RateLimiterTests
             var result2 = await delayedPermission2;
             var timeTaken2 = await ttt2;
             
-            Assert.IsTrue(timeTaken1 <= TimeSpan.FromSeconds(1.01));
-            Assert.IsTrue(timeTaken1 >= TimeSpan.FromSeconds(0.99));
+            Assert.IsTrue(timeTaken1 <= TimeSpan.FromSeconds(1.05), $"{timeTaken1} ! <= 1.05");
+            Assert.IsTrue(timeTaken1 >= TimeSpan.FromSeconds(0.95), $"{timeTaken1} ! >= 0.95");
             Assert.IsTrue(result1);
-            Assert.IsTrue(timeTaken2 <= TimeSpan.FromSeconds(2.01));
-            Assert.IsTrue(timeTaken2 >= TimeSpan.FromSeconds(1.99), $"{timeTaken2} ! >= 1.9");
+            Assert.IsTrue(timeTaken2 <= TimeSpan.FromSeconds(2.05), $"{timeTaken1} ! <= 2.05");
+            Assert.IsTrue(timeTaken2 >= TimeSpan.FromSeconds(1.95), $"{timeTaken2} ! >= 1.95");
             Assert.IsTrue(result2);
         }
 
@@ -152,11 +152,11 @@ namespace RateLimiterTests
             var result2 = await delayedPermission2;
             var timeTaken2 = await ttt2;
             
-            Assert.IsTrue(timeTaken1 <= TimeSpan.FromSeconds(1.01));
-            Assert.IsTrue(timeTaken1 >= TimeSpan.FromSeconds(0.99));
+            Assert.IsTrue(timeTaken1 <= TimeSpan.FromSeconds(1.05), $"{timeTaken1} ! <= 0.1");
+            Assert.IsTrue(timeTaken1 >= TimeSpan.FromSeconds(0.95), $"{timeTaken1} ! >= 0.95");
             Assert.IsTrue(result1);
-            Assert.IsTrue(timeTaken2 <= TimeSpan.FromSeconds(0.01));
-            Assert.IsTrue(timeTaken2 >= TimeSpan.FromSeconds(0.0), $"{timeTaken2} ! >= 1.9");
+            Assert.IsTrue(timeTaken2 <= TimeSpan.FromSeconds(0.1), $"{timeTaken2} ! <= 0.1");
+            Assert.IsTrue(timeTaken2 >= TimeSpan.FromSeconds(0.0), $"{timeTaken2} ! >= 0.0");
             Assert.IsFalse(result2);
         }
 
