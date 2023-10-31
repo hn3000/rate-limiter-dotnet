@@ -10,12 +10,12 @@ jobs:
 
     steps:
     - name: Set up .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.*
 
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     #- name: Prepare SNK
     #  env: 
@@ -23,7 +23,7 @@ jobs:
     #  run: echo "$NUGET_SIGNING_KEY" | base64 -d > RateLimiter/key.snk && sha256sum RateLimiter/key.snk && echo "$NUGET_SIGNING_KEY" |wc
 
     - name: Build
-      run: dotnet build RateLimiter --configuration Release
+      run: dotnet build RateLimiter --configuration ReleaseUnsigned
 
     - name: Test
       run: dotnet test RateLimiterTests

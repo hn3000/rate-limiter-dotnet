@@ -4,6 +4,14 @@
     <TargetFramework>net6.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <Configurations>Debug;Release;ReleaseUnsigned</Configurations>
+
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'ReleaseUnsigned' ">
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
