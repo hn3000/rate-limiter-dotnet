@@ -2,3 +2,5 @@ bin
 obj
 .idea
 /RateLimiter/key.snk
+/artifacts
+/RateLimiter/key.snk*
